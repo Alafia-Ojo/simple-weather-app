@@ -1,7 +1,9 @@
 import express from "express";
 import axios from "axios";
+import dotenv from "dotenv"
 
 const app = express();
+
 
 // Set static folder
 app.use(express.static("public"));
@@ -14,12 +16,14 @@ app.use(express.json());
 
 
 
+// Load environment variables from .env file
+dotenv.config();
 
 // Handle GET request for Weather
 
 // let currentTemp = 20;
 
-const apiKey = '3080bc66969141d1b83150032240601';
+const apiKey = process.env.WEATHER_API_KEY;
 const weatherApiEndpoint = 'https://api.weatherapi.com/v1/current.json';
 
 
@@ -33,8 +37,7 @@ app.get("/get-temperature",async (req, res) => {
         const response = await axios.get(weatherApiEndpoint, {
           params: {
             key: apiKey,
-            q: 'Ottawa', // Replace with the desired city or location
-            days: 5
+            q: 'Lagos', // Replace with the desired city or location
           },
         });
     
