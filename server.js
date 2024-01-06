@@ -48,10 +48,11 @@ app.get("/get-temperature", async (req, res) => {
   //   res.send(`${currentTemp.toFixed(1)}°C`);
 });
 
+export default app;
+
 // Start the server
 app.listen(5000, () => {
   console.log("Server listening on port 5000");
 });
 
 
-module.exports = app;
