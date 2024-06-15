@@ -27,7 +27,8 @@ app.get("/get-temperature", async (req, res) => {
     const response = await axios.get(weatherApiEndpoint, {
       params: {
         key: apiKey,
-        q: "Lagos", // Replace with the desired city or location
+
+        q: "Ondo", // Replace with the desired city or location
       },
     });
 
@@ -48,11 +49,7 @@ app.get("/get-temperature", async (req, res) => {
   //   res.send(`${currentTemp.toFixed(1)}°C`);
 });
 
-
-
 // Start the server
 app.listen(5000, () => {
   console.log("Server listening on port 5000");
 });
-
-
